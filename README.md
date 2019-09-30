@@ -4,7 +4,7 @@
 
 ### Used Tools
 
-*codeigniter
-*Smarty
-*Bootstrap
+* codeigniter
+* Smarty
+* Bootstrap
 
