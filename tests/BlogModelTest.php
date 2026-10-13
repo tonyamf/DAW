@@ -49,7 +49,7 @@ class BlogModelTest extends TestCase
         $this->model->input->post = ['name' => 'Ana', 'email' => 'a@example.invalid', 'pwd' => 'secret12'];
         $this->model->register_user();
         $digest = $this->model->db->inserts[0][1]['password_digest'];
-        $this->knownBug('passwords are stored as unsalted MD5 (Blog_model.php:328); use password_hash()', function () use ($digest) {
+        $this->knownBug('passwords are stored as unsalted MD5 (Blog_model.php:51); use password_hash()', function () use ($digest) {
             $this->assertTrue(password_verify('secret12', $digest));
         });
     }
@@ -68,7 +68,7 @@ class BlogModelTest extends TestCase
         $this->model->input->post = ['email' => "x' OR '1'='1' -- ", 'pwd' => 'whatever'];
         $this->model->validate_user();
         $sql = $this->model->db->queries[0];
-        $this->knownBug("the email is concatenated into the SQL (Blog_model.php:390); use bound parameters", function () use ($sql) {
+        $this->knownBug("the email is concatenated into the SQL (Blog_model.php:113); use bound parameters", function () use ($sql) {
             $this->assertStringNotContainsString("OR '1'='1'", $sql);
         });
     }
@@ -77,7 +77,7 @@ class BlogModelTest extends TestCase
     {
         $this->model->get_orders('1 OR 1=1');
         $sql = $this->model->db->queries[0];
-        $this->knownBug('customer id is concatenated unquoted (Blog_model.php:365)', function () use ($sql) {
+        $this->knownBug('customer id is concatenated unquoted (Blog_model.php:88)', function () use ($sql) {
             $this->assertStringNotContainsString('OR 1=1', $sql);
         });
     }
