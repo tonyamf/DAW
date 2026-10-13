@@ -1,0 +1,7 @@
+LAB12/application/views/templates_c/*
+!LAB12/application/views/templates_c/.gitkeep
+LAB12/application/logs/*
+!LAB12/application/logs/index.html
+.env
+.idea/
+__pycache__/
