@@ -1,0 +1,21 @@
+# UNTESTED: Docker is not available in the sandbox where this was written.
+services:
+  web:
+    build: .
+    ports: ["8080:80"]
+    environment:
+      BASE_URL: http://localhost:8080/
+      DB_HOST: db
+      DB_USER: daw
+      DB_PASSWORD: dawpass   # local demo value only
+      DB_NAME: daw
+    depends_on: [db]
+  db:
+    image: mariadb:10.11
+    environment:
+      MARIADB_ROOT_PASSWORD: rootpass   # local demo value only
+      MARIADB_DATABASE: daw
+      MARIADB_USER: daw
+      MARIADB_PASSWORD: dawpass
+    volumes:
+      - ./db/schema.sql:/docker-entrypoint-initdb.d/schema.sql:ro

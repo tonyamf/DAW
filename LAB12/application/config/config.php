@@ -23,7 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = '/~a55814/LAB12';
+$config['base_url'] = (getenv('BASE_URL') !== FALSE) ? getenv('BASE_URL') : 'http://localhost:8080/';
 
 /*
 |--------------------------------------------------------------------------
