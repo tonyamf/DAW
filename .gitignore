@@ -5,3 +5,5 @@ LAB12/application/logs/*
 .env
 .idea/
 __pycache__/
+vendor/
+.phpunit.result.cache
