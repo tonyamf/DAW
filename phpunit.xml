@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit bootstrap="tests/bootstrap.php" colors="false" failOnWarning="true">
+    <testsuites>
+        <testsuite name="DAW">
+            <file>tests/BlogModelTest.php</file>
+            <file>tests/TemplateTest.php</file>
+        </testsuite>
+    </testsuites>
+</phpunit>

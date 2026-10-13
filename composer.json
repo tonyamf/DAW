@@ -1,0 +1,12 @@
+{
+    "name": "tonyamf/daw-tests",
+    "description": "Test tooling for the DAW (Nib) shop; the application itself lives in LAB12/",
+    "type": "project",
+    "require-dev": {
+        "phpunit/phpunit": "^9.6"
+    },
+    "config": { "sort-packages": true,
+        "platform": {
+            "php": "7.4.33"
+        } }
+}
